@@ -1,0 +1,20 @@
+{
+  "name": "relief-x-ai",
+  "version": "0.1.0",
+  "description": "RELIEF-X AI: an AI agent that turns urban emergency signals into a proposed relief order, and pays for it through PayPal Sandbox after human approval.",
+  "type": "module",
+  "license": "MIT",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@google/genai": "^3.2.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

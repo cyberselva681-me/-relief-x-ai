@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RELIEF-X AI</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="logo">RX</span>
+      <div>
+        <h1>RELIEF-X AI</h1>
+        <p>Emergency response &amp; relief commerce command center</p>
+      </div>
+    </div>
+    <div class="chips">
+      <span class="chip" id="chip-ai">AI</span>
+      <span class="chip" id="chip-pp">PayPal</span>
+      <span class="chip" id="chip-cap">Cap</span>
+    </div>
+  </header>
+
+  <div id="banner" class="banner hidden"></div>
+
+  <main class="grid">
+    <section class="panel">
+      <h2>1 &middot; Detect <small>sample Early Warning feed</small></h2>
+      <div id="map"></div>
+      <ul id="incidents" class="incidents"></ul>
+    </section>
+
+    <section class="panel">
+      <h2>2 &middot; Plan &amp; procure <small>AI agent proposes, human decides</small></h2>
+      <div id="agent-empty" class="empty">Select an incident and run the agent. No money moves until you approve.</div>
+      <div id="agent" class="hidden"></div>
+    </section>
+  </main>
+
+  <section class="panel orders">
+    <h2>3 &middot; Pay &amp; track <small>PayPal Sandbox &middot; delivery progress is simulated</small></h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Order</th><th>Incident</th><th>Supplier</th><th>Total</th><th>Status</th><th>Actions</th></tr>
+        </thead>
+        <tbody id="orders"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    Demo uses sample incident data and fictional suppliers. Payments run in PayPal Sandbox only; no real money moves.
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
