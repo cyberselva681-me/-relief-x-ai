@@ -30,8 +30,8 @@ const sevColor = (c) => ({ 'sev-hi': '#ef4444', 'sev-md': '#f59e0b', 'sev-lo': '
 
 function renderChips() {
   const ai = $('#chip-ai');
-  if (state.ai.mode === 'claude') {
-    ai.textContent = `AI: Claude (${state.ai.model})`;
+  if (state.ai.mode && state.ai.mode !== 'heuristic') {
+    ai.textContent = `AI: ${state.ai.provider || 'Gemini'}${state.ai.model ? ' (' + state.ai.model + ')' : ''}`;
     ai.className = 'chip ok';
   } else {
     ai.textContent = 'AI: rule-based fallback (no API key)';
@@ -107,11 +107,11 @@ function renderAgent() {
     </div>`;
 
   if (showOrder) {
-    const fallback = order.aiMode !== 'claude';
+    const fallback = !order.aiMode || order.aiMode === 'heuristic';
     html += `
     <ul class="steps">
       <li>Incident analysed${order.weather ? ' with live forecast data (Open-Meteo)' : ''}</li>
-      <li>Relief needs estimated <span class="tag ${fallback ? 'fallback' : ''}">${fallback ? 'rule-based' : 'Claude'}</span></li>
+      <li>Relief needs estimated <span class="tag ${fallback ? 'fallback' : ''}">${fallback ? 'rule-based' : esc((state.ai && state.ai.provider) || 'Gemini')}</span></li>
       <li>${state.suppliers.length} suppliers compared on price, distance, rating and stock</li>
       <li>Order proposed. Waiting for human approval</li>
     </ul>
